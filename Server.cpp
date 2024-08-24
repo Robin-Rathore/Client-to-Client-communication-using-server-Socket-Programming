@@ -33,7 +33,7 @@ void ProcessNewMessage(int nClientSocket){
         // send(nClientSocket, "Sent Sucessfully", 17, 0);
         //sending message to another clients
         for(int index =0; index < 5; index++){
-            if(nArrClient[index] != nClientSocket){
+            if(nArrClient[index] != nClientSocket && nArrClient[index] != 0){
                 send(nArrClient[index], buff, sizeof(buff), 0);
             }
         }

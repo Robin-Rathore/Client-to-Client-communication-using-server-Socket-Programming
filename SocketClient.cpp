@@ -47,7 +47,8 @@ void showOutput() {
         char buff[256] = {0};
         int nRet = recv(nClientSocket, buff, sizeof(buff) - 1, 0);
         if (nRet > 0) {
-            cout << "\n" << buff << "\n";
+            if (strlen(buff) > 0) 
+            cout << "Message From your friend : " << buff << "\n";
         } else if (nRet == 0) {
             cout << "Server closed the connection.\n";
             break;
