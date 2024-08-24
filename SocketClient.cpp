@@ -99,47 +99,9 @@ int main() {
 
         cout << "You can start sending messages to the server. Type 'exit' to quit.\n";
 
-        // while (true) {
-        //     cout << "Enter message: ";
-        //     if (fgets(buff, sizeof(buff), stdin) == nullptr) {
-        //         cerr << "Failed to read input.\n";
-        //         break;
-        //     }
 
-        //     // Remove newline character from fgets
-        //     buff[strcspn(buff, "\n")] = '\0';
-
-        //     if (strcmp(buff, "exit") == 0) {
-        //         cout << "Exiting...\n";
-        //         break;
-        //     }
-
-        //     nRet = send(nClientSocket, buff, strlen(buff), 0);
-        //     if (nRet < 0) {
-        //         cerr << "Failed to send message to server.\n";
-        //         break;
-        //     }
-
-        //     // Set a timeout for receiving the server's response
-        //     struct timeval tv;
-        //     tv.tv_sec = 5; // 5 seconds timeout
-        //     tv.tv_usec = 0;
-        //     setsockopt(nClientSocket, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof(tv));
-
-        //     memset(buff, 0, sizeof(buff)); // Clear the buffer
-        //     nRet = recv(nClientSocket, buff, sizeof(buff) - 1, 0);
-        //     if (nRet > 0) {
-        //         cout << "Response from server: " << buff << "\n";
-        //     } else if (nRet == 0) {
-        //         cout << "Server closed the connection.\n";
-        //         break;
-        //     } else if (nRet < 0) {
-        //         cerr << "No response from server (timed out).\n";
-        //     }
-        // }
-
-        std::thread inputThread(takeInput);
-        std::thread outputThread(showOutput);
+        thread inputThread(takeInput);
+        thread outputThread(showOutput);
 
         inputThread.join();
         outputThread.join();
