@@ -12,37 +12,20 @@ Installation
 
 Clone the repository:
 
-bash
 
 git clone <repository-url>
 
 Running the Application
 
-    Compile the Server:
+Compile the Server: g++ -o server server.cpp
 
-    bash
+Run the Server: ./server
 
-g++ -o server server.cpp
+Compile the Client: g++ -std=c++11 -pthread -o socketclient socketclient.cpp
 
-Run the Server:
+Run the Client: ./socketclient
 
-bash
-
-./server
-
-Compile the Client:
-
-bash
-
-g++ -std=c++11 -pthread -o socketclient socketclient.cpp
-
-Run the Client:
-
-bash
-
-    ./socketclient
-
-    You can open multiple instances of the client (up to 5 by default, configurable as needed) to simulate multiple users.
+You can open multiple instances of the client (up to 5 by default, configurable as needed) to simulate multiple users.
 
 Features
 
